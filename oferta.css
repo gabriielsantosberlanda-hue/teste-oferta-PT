@@ -1,0 +1,181 @@
+/* ============================================================
+   Páginas pós-compra — folha de estilos partilhada pelas 4 rotas.
+   Mesma identidade da landing page: azul-marinho como cor principal,
+   verde como secundária, amarelo suave só em pequenos destaques.
+   ============================================================ */
+:root{
+  --navy:#12345f;
+  --navy-d:#0c2444;
+  --verde:#1e8f5e;
+  --verde-d:#166b47;
+  --amarelo:#f6d16b;
+  --amarelo-bg:#fdf6e3;
+  --bg:#f4f8fd;
+  --card:#ffffff;
+  --ink:#101f38;
+  --muted:#5a6b80;
+  --line:#e1eaf5;
+  --shadow:0 14px 40px rgba(16,38,72,.10);
+  --shadow-sm:0 8px 22px rgba(16,38,72,.07);
+  --font-sans:'Poppins',system-ui,-apple-system,sans-serif;
+  --font-serif:'Playfair Display',Georgia,serif;
+  --radius:20px;
+  --pill:100px;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--font-sans);
+  font-size:16px;line-height:1.6;color:var(--ink);
+  background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+  overflow-wrap:break-word;
+}
+:focus-visible{outline:3px solid var(--verde);outline-offset:3px;border-radius:6px}
+
+.folha{
+  width:100%;max-width:960px;
+  margin:0 auto;
+  padding:clamp(26px,5vw,52px) 20px clamp(40px,7vw,64px);
+  text-align:center;
+}
+
+/* ---------- etapa no topo ---------- */
+.etapa{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:clamp(11.5px,2.4vw,12.5px);font-weight:800;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--navy);
+  background:#fff;border:1.5px solid var(--line);
+  border-radius:var(--pill);padding:7px 16px;
+  box-shadow:var(--shadow-sm);
+}
+.etapa--ok{color:var(--verde-d);border-color:rgba(30,143,94,.3);background:rgba(30,143,94,.07)}
+.etapa .visto{
+  width:18px;height:18px;border-radius:50%;
+  background:var(--verde);color:#fff;
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:800;line-height:1;
+}
+
+/* ---------- títulos ---------- */
+h1{
+  font-family:var(--font-serif);
+  font-size:clamp(25px,4.6vw,40px);
+  font-weight:800;line-height:1.18;letter-spacing:-.5px;
+  color:var(--navy-d);
+  margin:20px auto 0;max-width:26ch;
+  text-wrap:balance;
+}
+h1 em{color:var(--verde);font-style:italic}
+.sub{
+  font-size:clamp(15px,2.4vw,17.5px);
+  color:var(--muted);line-height:1.6;
+  margin:14px auto 0;max-width:56ch;
+}
+
+/* ---------- bloco da oferta ---------- */
+.oferta{
+  display:grid;grid-template-columns:minmax(0,320px) 1fr;
+  gap:clamp(24px,4vw,40px);align-items:center;
+  text-align:left;
+  background:var(--card);border:1.5px solid var(--line);
+  border-radius:var(--radius);box-shadow:var(--shadow);
+  padding:clamp(22px,4vw,36px);
+  margin:clamp(26px,4vw,36px) 0 0;
+}
+
+.produto{
+  font-size:clamp(15px,2.5vw,17px);font-weight:800;
+  letter-spacing:.04em;color:var(--navy-d);line-height:1.25;
+}
+.produto-sub{font-size:14px;color:var(--muted);margin-top:4px}
+
+.selo{
+  display:inline-block;margin-top:14px;
+  background:var(--amarelo-bg);border:1px solid var(--amarelo);
+  color:#7a5a10;border-radius:var(--pill);
+  font-size:11.5px;font-weight:800;letter-spacing:.09em;
+  text-transform:uppercase;padding:6px 13px;
+}
+
+.detalhe h2{
+  font-size:12.5px;font-weight:800;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--verde-d);
+  margin:22px 0 10px;
+}
+.inclui{list-style:none}
+.inclui li{
+  position:relative;padding:7px 0 7px 27px;
+  font-size:clamp(14.5px,2.3vw,15.5px);line-height:1.5;
+}
+.inclui li::before{
+  content:"";position:absolute;left:0;top:13px;
+  width:16px;height:16px;border-radius:50%;
+  background:rgba(30,143,94,.14);
+  box-shadow:inset 0 0 0 2px var(--verde);
+}
+.inclui li::after{
+  content:"";position:absolute;left:5px;top:18px;
+  width:6px;height:3px;border-left:2px solid var(--verde-d);
+  border-bottom:2px solid var(--verde-d);
+  transform:rotate(-45deg);
+}
+.valor{
+  margin-top:18px;padding-top:16px;border-top:1px solid var(--line);
+  font-size:clamp(14.5px,2.3vw,15.5px);color:var(--muted);
+  line-height:1.6;font-style:italic;
+}
+
+/* ---------- capa do produto ---------- */
+.mockup{display:flex;justify-content:center}
+.mockup img{
+  width:100%;max-width:320px;height:auto;
+  border-radius:14px;
+  box-shadow:0 16px 38px rgba(10,30,60,.20);
+  border:1px solid var(--line);
+}
+
+/* ---------- preço ---------- */
+.preco{margin:clamp(26px,4vw,34px) 0 0}
+.preco-rotulo{
+  font-size:clamp(13px,2.3vw,14.5px);font-weight:600;
+  color:var(--muted);letter-spacing:.02em;
+}
+.preco-valor{
+  font-family:var(--font-serif);
+  font-size:clamp(44px,9vw,64px);font-weight:800;
+  color:var(--navy-d);line-height:1.05;margin-top:2px;
+}
+.preco-valor span{font-size:.52em;font-weight:700;vertical-align:.3em}
+
+/* ---------- área do widget da Hotmart ---------- */
+/* Widget do Funil de Vendas da Hotmart. Sem altura fixa: a área cresce
+   com o que a Hotmart renderiza. As regras abaixo apenas impedem que os
+   botões ou um iframe do widget rebentem a largura em ecrãs pequenos. */
+#hotmart-sales-funnel{
+  width:100%;max-width:560px;
+  margin:clamp(20px,3.5vw,26px) auto 0;
+}
+#hotmart-sales-funnel *{max-width:100%;box-sizing:border-box}
+#hotmart-sales-funnel iframe{width:100%;display:block;border:0}
+
+.seguro{
+  margin-top:16px;font-size:clamp(12.5px,2.2vw,13.5px);
+  color:var(--muted);
+}
+
+/* ---------- responsivo ---------- */
+@media(max-width:760px){
+  .oferta{grid-template-columns:1fr;gap:24px;text-align:left}
+  h1{max-width:none}
+  .mockup img{max-width:290px}
+}
+@media(max-width:420px){
+  .oferta{padding:20px 18px}
+  .inclui li{font-size:15px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+}
